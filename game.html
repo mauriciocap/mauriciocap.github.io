@@ -112,7 +112,7 @@ reiniciar= function () {
 	Fuente.style.width= "100%";
 	Fuente.style.display= "none";
 	Guardar.style.display= "none";
-	if (location.hash!="#editar") { Controles.style.display= "none"; }
+	if (location.hash!="#mostrarControles") { Controles.style.display= "none"; }
 	var s= Fuente.value.replace("&gt;",">").replace("&lt;","<");
 	Fuente.innerHTML= Fuente.value;
 	var js= tplAFunciones(s);
@@ -147,8 +147,12 @@ window.onload= function () {
 			e.preventDefault();
 		}
 	};
-	if (location.hash=="#editar") {
+	if (location.hash=="#mostrarControles") {
 		mostrarControles();
+	}
+
+	window.onhashchange= function () {
+		irA(location.hash);
 	}
 }
 
